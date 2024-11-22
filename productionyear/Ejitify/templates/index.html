@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ejitify ホーム{% endblock %}
+{% block content %}
+<div id='artist'>
+  <h1>おすすめのアーティスト</h1>
+  <a href="{% url 'Ejitify:artist' %}"><img src="{% static 'kakita1.png' %}" width="200" alt="柿木田理人">柿木田理人</a>
+</div>
+</article>
+{% endblock %}

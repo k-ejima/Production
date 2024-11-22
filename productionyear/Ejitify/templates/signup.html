@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejitify サインアップ</title>
+</head>
+<div id="div_signup">
+  <h1>登録してコンテンツを楽しもう</h1>
+  <form id="entry">
+    <dl>
+      <dt>メールアドレスを入力してください</dt>
+      <dd><input type="email" name="email" id="email" required></dd>
+    </dl>
+    <p id="submit_button_cover">
+      <input type="submit" id="submit_button" value="送信する">
+    </p>
+
+  </form>
+  <a href="{% url 'Ejitify:login' %}">アカウントをすでにお持ちの場合は、ここからログインしてください</a>
+</div>

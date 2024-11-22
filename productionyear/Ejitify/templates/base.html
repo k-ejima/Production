@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <!--ヘッダー-->
+    <header>
+        <p class="left-content"><a href="{% url 'Ejitify:index' %}"><img src="{% static 'icon.png' %}" alt="Ejitify"
+                    class="icon"></a></p>
+        <p class="right-content"><a href="{% url 'Ejitify:signup' %}">サインアップ</a></p>
+        <p class="right-content"><a href="{% url 'Ejitify:login' %}">ログイン</a></p>
+    </header>
+    <hr>
+    <!--/ヘッダー-->
+    <article>
+        <!--サイド-->
+        <div class="sidebar">
+            <h1><a href="{% url 'Ejitify:index' %}">Ejitify</a></h1>
+            <section id="home">
+            </section>
+            <a href="{% url 'Ejitify:index' %}">ホーム</a>
+            <section id="search">
+            </section>
+            <a href="{% url 'Ejitify:search' %}">検索</a>
+            <section id="library">
+            </section>
+            <a href="{% url 'Ejitify:library' %}">マイライブラリ</a>
+        </div>
+        <!--/サイド-->
+        {% block content %}{% endblock %}
+        <!--フッター-->
+        <div id="footer_nav">
+            <ul>
+                <h4>プレビュー版Ejitify</h4>
+                <a href="{% url 'Ejitify:signup' %}">今すぐ登録</a>
+            </ul>
+        </div>
+        <div id="copy">
+            <small>&copy; 2024 Ejitify.</small>
+        </div>
+        <!--/フッター-->
+</body>
+
+</html>
