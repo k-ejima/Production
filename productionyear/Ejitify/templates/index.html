@@ -2,9 +2,34 @@
 {% load static %}
 {% block title %}Ejitify ホーム{% endblock %}
 {% block content %}
-<div id='artist'>
-  <h1>おすすめのアーティスト</h1>
-  <a href="{% url 'Ejitify:artist' %}"><img src="{% static 'kakita1.png' %}" width="200" alt="柿木田理人">柿木田理人</a>
+<div class="container" id='artist'>
+    <div class="row">
+        {% for record in object_list %}
+        <div class="card shadow-sm">
+            <img src="{{ record.image1.url }}" class="bd-placeholder-img card-img-top" width="20%" height="225"
+                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#55595c" />
+            </img>
+
+            <div class="card-body">
+                <p class="card-text">
+                    {{record.artist_name}}
+                </p>
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                            onclick="location.href='{% url 'Ejitify:artist'%}'">詳細</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 </article>
 {% endblock %}

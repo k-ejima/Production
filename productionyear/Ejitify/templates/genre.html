@@ -2,7 +2,21 @@
 {% load static %}
 {% block title %}Ejitify ジャンル{% endblock %}
 {% block content %}
-<div id='genre'>
+<div id='display_genre'>
+    <h1>すべてのジャンル</h1>
+    <div class="container">
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-4">
+                <img src="{{ category.imagecategory.url }}" class="img-fluid" alt="{{ category.namecategory }}">
+                <h3>{{ category.namecategory }}</h3>
+
+                <!-- デバッグ用に画像のURLを表示 -->
+                <p>{{ category.imagecategory.url }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 </article>
 {% endblock %}

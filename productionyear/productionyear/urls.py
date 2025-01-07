@@ -19,4 +19,15 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Ejitify.urls')),
+    path('',include('accounts.urls')),
 ]
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(
+   # MEDIA_URL = '/media/'
+  settings.MEDIA_URL,
+  # MEDIA_ROOTにリダイレクト
+  document_root=settings.MEDIA_ROOT
+  )

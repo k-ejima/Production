@@ -2,9 +2,16 @@
 {% load static %}
 {% block title %}Ejitify 検索{% endblock %}
 {% block content %}
-<div id="genre_select">
-  <h1>すべてのジャンル</h1>
-  <a href="genre.html"><img src="スクリーンショット 2024-08-19 153937.png" alt="ニューリリース"></a>
+<div id="search_program">
+  <div class="container">
+    <form method="get" action="{% url 'Ejitify:search' %}">
+      {{ form.as_p }}
+    </form>
+    <h4>検索結果</h4>
+    {% for artist in results %}
+    <li>{{ artist.artist_name }}</li>
+    {% endfor %}
+  </div>
 </div>
 </article>
 {% endblock %}

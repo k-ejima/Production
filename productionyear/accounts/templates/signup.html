@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejitify サインアップ</title>
+</head>
+<div id="div_signup">
+  <h1>登録してコンテンツを楽しもう</h1>
+  <form method="post">
+    {% csrf_token %}
+
+    {% for field in form %}
+    <p>
+
+      {{ field.label_tag }}<br>
+
+      {{ field }}
+
+      {% if field.help_text %}
+      <small style="color: grey">{{ field.help_text }}</small>
+      {% endif %}
+
+      {% for error in field.errors %}
+    <p style="color: red;">{{ error }}</p>
+    {% endfor %}
+    </p>
+    {% endfor %}
+
+    <input type="submit" value="Sign up">
+  </form>
+  <br>
+
+  </form>
+  <a href="{% url 'accounts:login' %}">アカウントをすでにお持ちの場合は、ここからログインしてください</a>
+
+  <br>
+  <p><a href="{% url 'Ejitify:index' %}">
+      登録をやめてトップページに戻る</a>
+  </p>
+
+</div>
