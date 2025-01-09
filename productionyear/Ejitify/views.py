@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,ListView
+from django.views.generic import TemplateView,ListView,DetailView
 
-from .models import PhotoArtist
+from .models import PhotoArtist,Category
 from .forms import SearchForm
 
 # Create your views here.
@@ -10,13 +10,15 @@ class IndexView(ListView):
     template_name = 'index.html'
     queryset = PhotoArtist.objects.order_by('artist_name')
 
-class ArtistView(ListView):
+class ArtistView(DetailView):
     model = PhotoArtist
     template_name = 'artist.html'
     context_object_name = 'artist'
 
-class GenreView(TemplateView):
+class GenreView(ListView):
     template_name = 'genre.html'
+    model = Category
+    context_object_name = 'categories'
 
 class SearchView(ListView):
     model = PhotoArtist
