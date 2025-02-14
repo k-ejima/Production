@@ -38,7 +38,7 @@ article {
 #artist {
   background-color: rgb(112, 111, 111);
   color: aliceblue;
-  width: 1200px;
+  width: 100%;
   margin-right: 0%;
 }
 
@@ -55,7 +55,7 @@ article {
 /* アーティストトラックセクションのスタイル */
 #artist_tracks {
   background-color: rgb(112, 111, 111);
-  width: 1200px;
+  width: 100%;
   color: aliceblue;
 }
 
@@ -110,14 +110,15 @@ a:hover {
 #search_program {
   color: aliceblue;
   background-color: rgb(112, 111, 111);
-  width: 1200px;
+  width: 100%;
 }
 
 /* ジャンル表示のスタイル */
 #display_genre {
   color: aliceblue;
   background-color: rgb(112, 111, 111);
-  width: 1200px;
+  width: 100%;
+  padding: 20px;
 }
 
 /* ジャンル表示のヘッダーのスタイル */
@@ -130,20 +131,10 @@ a:hover {
   color: aliceblue;
 }
 
-/* サインアップセクションのスタイル */
-#div_signup {
-  color: aliceblue;
+.col-md-8 img {
+  width: 1000px;
 }
 
-/* ログインセクションのスタイル */
-#div_login {
-  color: aliceblue;
-}
-
-.enter_username {
-  color: aliceblue;
-}
-
-.enter_password {
-  color: aliceblue;
+.col-md-4 img {
+  width: 300px;
 }

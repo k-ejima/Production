@@ -1,6 +1,8 @@
 from django.db import models
 
-from accounts.models import CustomUser
+# from accounts.models import CustomUser
+# from django.contrib.auth.models import User
+from django.conf import settings  # 追加
 
 class Category(models.Model):
 
@@ -20,13 +22,8 @@ class Category(models.Model):
         return self.namecategory
     
 class PhotoArtist(models.Model):
+        user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='ユーザー', on_delete=models.CASCADE)  # 修正
 
-        user = models.ForeignKey(
-            CustomUser,
-
-            verbose_name='ユーザー',
-            on_delete=models.CASCADE
-        )
 
         category = models.ForeignKey(
             Category,
@@ -79,3 +76,12 @@ class Song(models.Model):
 
         def __str__(self):
             return self.song_title
+        
+class Playlist(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
+    name = models.CharField(max_length=100)
+    songs = models.ManyToManyField(Song)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

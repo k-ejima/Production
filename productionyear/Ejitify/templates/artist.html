@@ -17,15 +17,20 @@
     </div>
     <div class="row mt-4">
       <h3>曲一覧</h3>
-      <ul>
-        {{ artist.songs }}
+      <ol>
         {% for song in artist.songs.all %}
-        <li>{{ song.title }}</li>
+        <li>
+          {{ song.song_title }}<br>
+          <audio controls style="width: 100%;">
+            <source src="{{ song.file.url }}" type="audio/mpeg">
+            お使いのブラウザはオーディオタグをサポートしていません。
+          </audio>
+        </li>
         {% endfor %}
-      </ul>
+      </ol>
     </div>
   </div>
-
-  </article>
-  <!--/アーティスト-->
-  {% endblock %}
+</div>
+</article>
+<!--/アーティスト-->
+{% endblock %}

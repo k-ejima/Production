@@ -2,15 +2,23 @@
 {% load static %}
 {% block title %}Ejitify 検索{% endblock %}
 {% block content %}
-<div id="search_program">
+<div id="search_program" style="background-color: rgb(112, 111, 111); padding: 10px;">
   <div class="container">
     <form method="get" action="{% url 'Ejitify:search' %}">
       {{ form.as_p }}
     </form>
-    <h4>検索結果</h4>
-    {% for artist in results %}
-    <li>{{ artist.artist_name }}</li>
-    {% endfor %}
+    <h4 style="color: white;">検索結果</h4>
+    <div style="color: white;">
+      {% if query %}
+      {% if results %}
+      {% for artist in results %}
+      <p><a href="{% url 'Ejitify:artist' artist.pk %}" style="color: white;">{{ artist.artist_name }}</a></p>
+      {% endfor %}
+      {% else %}
+      <p>検索結果がありません</p>
+      {% endif %}
+      {% endif %}
+    </div>
   </div>
 </div>
 </article>
