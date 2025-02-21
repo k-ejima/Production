@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}プレイリスト作成{% endblock %}
+
+{% block content %}
+<div style="background-color:rgb(112, 111, 111); padding: 20px; width: 100%;">
+    <form method="post" class="mb-5" style="color: white;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary" style="color: white;">作成する</button>
+
+    </form>
+</div>
+</article>
+{% endblock %}
