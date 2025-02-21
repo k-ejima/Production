@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}プレイリスト一覧{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="listlist" style="background-color: rgb(112, 111, 111); padding: 20px; width: 100%;">
+    <h1 style="color: white;">みんなのプレイリスト</h1>
+    <ol style="color: white;">
+        {% for playlist in playlists %}
+        <li style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="{% url 'Ejitify:playlist_detail' playlist.pk %}" style="color: white;">{{ playlist.name }}</a>
+            <form action="{% url 'Ejitify:playlist_delete' playlist.pk %}" method="post" style="margin-left: 10px;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">削除</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+{% else %}
+<div style="background-color:rgb(112, 111, 111); padding: 20px; width: 100%;">
+
+    <h4 style="color: white;">ログインしてお楽しみください！</h4>
+    <a href="{% url 'accounts:signup' %}">今すぐ登録</a>
+    {% endif %}
+    </article>
+    {% endblock %}

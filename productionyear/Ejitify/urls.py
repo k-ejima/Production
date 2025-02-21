@@ -5,10 +5,12 @@ app_name = 'Ejitify'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('signup/', views.SignupView.as_view(), name='signup'),
-    path('artist/', views.ArtistView.as_view(), name='artist'),
+    path('artist/<int:pk>', views.ArtistView.as_view(), name='artist'),
     path('genre/', views.GenreView.as_view(), name='genre'),
-    path('library/', views.LibraryView.as_view(), name='library'),
-    path('login/', views.LoginView.as_view(), name='login'),
     path('search/', views.SearchView.as_view(), name='search'),
+    path('playlist/create/', views.create_playlist, name='create_playlist'),  
+    path('playlists/', views.PlaylistListView.as_view(), name='playlist_list'), 
+    path('playlist/<int:pk>', views.PlaylistDetailView.as_view(), name='playlist_detail'),
+    path('playlist/<int:pk>/delete/', views.delete_playlist, name='playlist_delete'),
+
 ]

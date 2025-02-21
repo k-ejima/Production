@@ -4,16 +4,33 @@
 {% block content %}
 <!--アーティスト-->
 <div id="artist_tracks">
-  <h1>柿木田理人</h1>
-  <img src="kakita2.png" width="1000" alt="柿木田理人"></a>
-  <p id="submit_button_cover">
-    <input type="submit" id="submit_button" value="フォローする">
-  <h3>人気曲</h3>
-  <ul>
-    1,高橋と男達のサンバ ~脱皮と抜け殻を添えて~
-  </ul>
-  <div id="saisei"><audio controls src="..."></audio></div>
-  </article>
-
-  <!--/アーティスト-->
-  {% endblock %}
+  <div class="container" id='artist'>
+    <div class="row">
+      <div class="col-md-8">
+        <img src="{{ artist.image2.url }}" class="img-fluid" alt="{{ artist.artist_name }}">
+      </div>
+      <div class="col-md-4">
+        <h2>{{ artist.artist_name }}</h2>
+        <p>{{ artist.comment }}</p>
+        <p><strong>ジャンル:</strong> {{ artist.category.namecategory }}</p>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <h3>曲一覧</h3>
+      <ol>
+        {% for song in artist.songs.all %}
+        <li>
+          {{ song.song_title }}<br>
+          <audio controls style="width: 100%;">
+            <source src="{{ song.file.url }}" type="audio/mpeg">
+            お使いのブラウザはオーディオタグをサポートしていません。
+          </audio>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</div>
+</article>
+<!--/アーティスト-->
+{% endblock %}
