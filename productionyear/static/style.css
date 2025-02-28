@@ -97,7 +97,7 @@ a:hover {
 
 /* フッターナビゲーションのスタイル */
 #footer_nav {
-  background-color: rgb(11, 171, 43);
+  background: linear-gradient(to right, #974bac, #395ed7);
 }
 
 /* アイコンのスタイル */

@@ -27,7 +27,7 @@
     <!--/ヘッダー-->
     <article>
         <!--サイド-->
-        <div class="sidebar">
+        <div class="sidebar" style="font-family: Franklin Gothic">
             <h1><a href="{% url 'Ejitify:index' %}">Ejitify</a></h1>
             <section id="home">
             </section>
@@ -52,7 +52,7 @@
         {% if user.is_authenticated %}
         <div id="footer_nav">
             <ul>
-                <h4>登録ありがとうございます！</h4>
+                <h4 style="color: white;">登録ありがとうございます！</h4>
                 <a href="{% url 'accounts:logout' %}">ログアウトはこちら</a>
             </ul>
         </div>
@@ -60,7 +60,7 @@
         <!--フッター-->
         <div id="footer_nav">
             <ul>
-                <h4>Ejitifyにログインして楽しもう！</h4>
+                <h4 style="color: white;">Ejitifyにログインして楽しもう！</h4>
                 <a href="{% url 'accounts:signup' %}">今すぐ登録</a>
             </ul>
         </div>
